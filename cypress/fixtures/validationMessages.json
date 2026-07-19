@@ -1,0 +1,4 @@
+{
+  "emailValidationMessage": "Must be valid email. example@yourdomain.com",
+  "requiredFieldMessage": "This field is required"
+}
