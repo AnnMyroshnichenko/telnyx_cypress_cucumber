@@ -5,36 +5,15 @@ import contactUsPage from "../page_objects/contactUsPage";
 import voiceAIAgentsPage from "../page_objects/voiceAIAgentsPage";
 import solutionPage from "../page_objects/solutionPage";
 
-import navigation from "../../fixtures/navigation.json";
-import sections from "../../fixtures/sections.json";
+import navigation from "../../test_data/navigation.json";
+import sections from "../../test_data/sections.json";
 
 Given("I open the homepage", () => {
   cy.visit(navigation.homeUrl);
 });
 
-When("I click the {string} button", (button) => {
-  switch (button) {
-    case "Explore the Stack":
-      homePage.elements.exploreStackButton().click();
-      break;
-
-    case "Talk to an Expert":
-      homePage.elements.talkToExpertButton().click();
-      break;
-
-    case "Explore Our AI Assistant":
-      homePage.elements.solutionsSection().scrollIntoView();
-      homePage.elements.exploreAiAssistantButton().click();
-      break;
-
-    case "Start Building":
-      homePage.elements.startBuildingButton().click();
-      break;
-
-    case "Learn More":
-      homePage.elements.learnMoreButton().scrollIntoView().click({ force: true });
-      break;
-  }
+When("I click the {string} button", (buttonName) => {
+  homePage.clickButton(buttonName);
 });
 
 Then("I should be redirected to the Stack section", () => {

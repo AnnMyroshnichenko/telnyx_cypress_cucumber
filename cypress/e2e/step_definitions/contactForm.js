@@ -2,8 +2,8 @@ import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
 import { faker } from "@faker-js/faker";
 
 import contactUsPage from "../page_objects/contactUsPage";
-import navigation from "../../fixtures/navigation.json";
-import validationMessages from "../../fixtures/validationMessages.json";
+import navigation from "../../test_data/navigation.json";
+import validationMessages from "../../test_data/validationMessages.json";
 
 Given("I open the Contact Us page", () => {
   cy.visit(navigation.contactFormUrl);

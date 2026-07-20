@@ -1,6 +1,6 @@
 import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
 import voiceAIAgentsPage from "../page_objects/voiceAIAgentsPage";
-import navigation from "../../fixtures/navigation.json";
+import navigation from "../../test_data/navigation.json";
 
 Given("I open the Voice AI Agents page", () => {
   cy.visit(navigation.voiceAiAgentsUrl);

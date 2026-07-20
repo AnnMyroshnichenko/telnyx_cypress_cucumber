@@ -24,12 +24,8 @@ class homePage {
     sendMessageButton: () => cy.get('#feature-demo form button[type="submit"]'),
     conversation: () => cy.get('#feature-demo').find('.overflow-y-auto'),
     userMessage: (text) => this.elements.conversation().contains(text),
-    healthcarePanel: () =>
-      cy.get('#usecase-panel-healthcare'),
-
-    learnMoreButton: () =>
-      cy.get('#usecase-panel-healthcare')
-        .find('a[href="/solutions/healthcare"], a[href="https://telnyx.com/solutions/healthcare"]'),
+    healthcarePanel: () => cy.get('#usecase-panel-healthcare'),
+    learnMoreButton: () => cy.get('#usecase-panel-healthcare').find('a[href="/solutions/healthcare"], a[href="https://telnyx.com/solutions/healthcare"]'),
     startBuildingButton: () => cy.contains('a[href="/sign-up"]', 'START BUILDING'),
     chatLauncher: () => cy.get('button', { includeShadowDom: true }).filter(':visible').last(),
     chatWindow: () => cy.get('[data-widget-theme="light"]'),
@@ -38,6 +34,10 @@ class homePage {
     chatMessages: () => cy.get('[data-widget-theme="light"]', { includeShadowDom: true }).contains('Hello', { matchCase: false }),
     chatCloseButton: () => cy.get('[data-widget-theme="light"]', { includeShadowDom: true }).find('[data-state="closed"]'),
  };
+
+ clickButton(button) {
+   return this.elements[button]().scrollIntoView().click();
+ }
 }
 
 export default new homePage();
